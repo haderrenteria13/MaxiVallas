@@ -55,8 +55,8 @@
   background: var(--Gris) !important;
 }
 
-.azul {
-  background: var(--Light-Blue) !important;
+.verde {
+  background: var(--Verde) !important;
 }
 
 .blanco {
@@ -71,8 +71,8 @@
   color: var(--Gray-Nigt) !important;
 }
 
-.tx-azul {
-  color: var(--Light-Blue) !important;
+.tx-verde {
+  color: var(--Verde) !important;
 }
 
 .tx-rosado {
@@ -194,6 +194,24 @@ hr {
 }
 /*Fin Footer*/
 /*-------Fin Componentes-------*/
+
+
+.about-us-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.btn-learn-more {
+  background-color: var(--Blanco);
+  color: var(--Blanco);
+  border-color: var(--Negro);
+  padding: 10px 20px;
+}
+
+.btn-learn-more:hover {
+  background-color: var(--Verde);
+  color: var(--Blanco);
+}
 
 .contact .info {
   width: 100%;
@@ -345,6 +363,7 @@ hr {
   bottom: 20px;
   right: 40px;
   padding: 10px;
+  z-index: 1000;
 }
 
 @media only screen and (max-width: 600px) {
@@ -382,4 +401,62 @@ hr {
   .map {
     height: 75%;
   }
+}
+
+.clients {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.clients .col-lg-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clients img {
+  width: 50%;
+  filter: grayscale(100);
+  transition: all 0.4s ease-in-out;
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.clients img:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .clients img {
+    width: 40%;
+  }
+}
+
+@media (max-width: 575px) {
+  .clients img {
+    width: 30%;
+  }
+}
+
+.services .icon-box {
+  position: relative;
+  z-index: 1;
+}
+
+.services .icon {
+  margin: 0 auto 20px auto;
+  padding-top: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+  width: 60px;
+  height: 60px;
+  background: var(--Verde);
+}
+
+.services .icon i {
+  font-size: 36px;
+  line-height: 1;
+  color: #fff;
 }
