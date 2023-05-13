@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <!-- Fin Link Google Fonts -->
     <!-- Links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -61,70 +62,84 @@
         </div>
       </div>
     </nav>
-    <!-- Fin Menu -->
+  <!-- Fin Menu -->
 
-    <!--Header Titulo-->
     <section class="breadcrumbs verde">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2 class="fw-bold tx-blanco">Contacto</h2>
-          <ol class="tx-blanco">
-            <li><a href="index.html" class="tx-blanco">Inicio</a></li>
-            <li>Contacto</li>
-          </ol>
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold tx-blanco">Nuestras Vallas</h2>
+            <ol class="tx-blanco">
+              <li><a href="index.html" class="tx-blanco">Inicio</a></li>
+              <li>Nuestras Vallas</li>
+            </ol>
+          </div>
+  
         </div>
-
-      </div>
     </section>
-    <!--Fin Header Titulo-->
 
-    <!--Section Contáctame-->
-    <section class="negro contenedor" id="contact">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-8">
-            <!--Titulo-->
-            <div class="section-title">
-              <h1 class="fw-bold text-center mb-2 mt-3 tx-blanco fs-1">
-                ¡Hablemos!
-              </h1>
-              <p class="tx-blanco text-center">Si estás interesado en nuestros servicios o tienes alguna inquietud, no dudes en contactarnos.</p>
-            </div>
-            <!-- Fin Titulo-->
-          </div>
-        </div>
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form gris p-3 rounded-2">
-          <div class="row">
-            <div class="col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" required>
-            </div>
-            <div class="col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Tu Email" required>
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
-          </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit" class="btn btn-primary">Enviar Mensaje</button></div>
-        </form>
-      </div>
-    </section>
-    <!--Fin Section Contáctame-->
+    <!-- Mapa -->
+    <div>
+            <div id="map"></div>
+    </div>
+    <!-- Fin Mapa -->
+
+    <!-- Scrip Mapa -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var availableVallas = [
+          {
+            name: 'Valla 1: Carrera 58 con Calle 23',
+            location: [6.244203, -75.566584]
+          },
+          {
+            name: 'Valla 2',
+            location: [6.244522, -75.565556]
+          },
+          {
+            name: 'Valla 3',
+            location: [6.244872, -75.565444]
+          }
+        ];
+        
+        var unavailableVallas = [
+          {
+            name: 'Valla 4',
+            location: [6.242800, -75.568492]
+          },
+          {
+            name: 'Valla 5',
+            location: [6.243507, -75.566551]
+          }
+        ];
+        
+        var map = L.map('map').setView([6.2442, -75.5666], 15);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18
+        }).addTo(map);
+        
+        availableVallas.forEach(function(valla) {
+          var marker = L.marker(valla.location).addTo(map);
+          marker.bindPopup('<b>' + valla.name + '</b><br><p class="text-danger p-0 m-0"><strong>Estado:</strong> No Disponible <i class="fa fa-times-circle"></i></p><br><a class="btn btn-primary tx-blanco fw-bold m-0" href="../src/vallas/mp-15014.html">Mp - 15014 > </a>');
+          var listItem = '<li class="list-group-item">' + valla.name + '</li>';
+          document.getElementById('available-vallas').innerHTML += listItem;
+        });
+        
+        unavailableVallas.forEach(function(valla) {
+          var marker = L.marker(valla.location, {icon: L.icon({iconUrl: 'fa fa-map-marker'})}).addTo(map);
+          marker.bindPopup('<b>' + valla.name + '</b><br>Valla no disponible');
+          var listItem = '<li class="list-group-item">' + valla.name + '</li>';
+          document.getElementById('unavailable-vallas').innerHTML += listItem;
+        });
+    </script>   
+    <!-- Fin Scrip Mapa -->
 
     <!--Linea-->
     <div class="container">
-      <hr>
+        <hr>
     </div>
-     <!--Linea-->
+    <!--Linea-->
 
     <!-- Footer -->
     <footer class="negro text-white">
@@ -156,10 +171,10 @@
       </div>
     </footer>        
     <!-- Fin Footer -->
-
+    
     <!-- Boton Whathsapp -->
     <a href="https://wa.me/tunumero" class="btn btn-whatsapp btn-primary" target="_blank">
-      <p class="m-0"><i class="fab fa-whatsapp"></i> Chatea con nosotros</p>
+       <p class="m-0"><i class="fab fa-whatsapp"></i> Chatea con nosotros</p>
     </a> 
     <!-- Fin Boton Whathsapp -->
 

@@ -1,9 +1,9 @@
 /*-------Importante-------*/
 :root {
-  --Verde: #0DF205;
+  --Verde: #0df205;
   --Blanco: #ffffff;
   --Negro: #000000;
-  --Gris: #1F1F21;
+  --Gris: #1f1f21;
 }
 
 * {
@@ -68,7 +68,7 @@
 }
 
 .tx-oscuro {
-  color: var(--Gray-Nigt) !important;
+  color: var(--Negro) !important;
 }
 
 .tx-verde {
@@ -125,22 +125,22 @@
 /*-------Componentes-------*/
 /*Nav*/
 .menu li a {
-    transition: all 0.3s ease;
-    color: var(--Ligt-Pink);
+  transition: all 0.3s ease;
+  color: var(--Ligt-Pink);
 }
 
 .menu li a:hover {
-    color: var(--Light-Blue);
+  color: var(--Light-Blue);
 }
 
 .menu-icono {
-    height: 20px;
+  height: 20px;
 }
 
 .boton-nav {
-    background: var(--Ligt-Pink);
-    color: var(--Gray-Nigt);
-    transition: all 0.3s ease;
+  background: var(--Ligt-Pink);
+  color: var(--Gray-Nigt);
+  transition: all 0.3s ease;
 }
 
 /*Fin Nav*/
@@ -194,7 +194,63 @@ hr {
 }
 /*Fin Footer*/
 /*-------Fin Componentes-------*/
+.breadcrumbs {
+  padding: 20px 0;
+  background-color: #fafaff;
+  min-height: 40px;
+}
 
+@media (max-width: 992px) {
+  .breadcrumbs {
+    margin-top: 64px;
+  }
+}
+
+.breadcrumbs h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .breadcrumbs h2 {
+    margin: 0 0 10px 0;
+  }
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.breadcrumbs ol li + li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: var(--Blanco);
+  content: "/";
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+
+  .breadcrumbs ol {
+    display: block;
+  }
+
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
 
 .about-us-description {
   font-size: 18px;
@@ -270,7 +326,7 @@ hr {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
   margin-top: 25px;
 }
 
@@ -310,14 +366,14 @@ hr {
   border-radius: 4px;
 }
 
-.form-control{
+.form-control {
   padding: 0.9rem 1.5rem !important;
   background: transparent !important;
   border: 1px solid var(--Blanco) !important;
   color: var(--Blanco) !important;
 }
 
-.form-control::placeholder{
+.form-control::placeholder {
   font-weight: 300 !important;
   color: var(--Blanco);
 }
@@ -335,7 +391,7 @@ hr {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: var(--Verde);
   border: 0;
   padding: 10px 24px;
@@ -344,7 +400,7 @@ hr {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: var(--Verde);
 }
 
@@ -361,7 +417,7 @@ hr {
 .btn-whatsapp {
   position: fixed;
   bottom: 20px;
-  right: 40px;
+  right: 45px;
   padding: 10px;
   z-index: 1000;
 }
@@ -373,24 +429,25 @@ hr {
 }
 
 .step {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    color: var(--Verde);
+  display: flex;
+  position: relative;
+  justify-content: center;
+  color: var(--Verde);
 }
 
 .step::after {
-    content: "";
-    border-right: 2px solid var(--Blanco);
-    opacity: .1;
-    height: 60px;
-    position: absolute;
-    top: 40px;
+  content: "";
+  border-right: 2px solid var(--Blanco);
+  opacity: 0.1;
+  height: 60px;
+  position: absolute;
+  top: 40px;
 }
 
 .map {
   height: 30rem;
 }
+
 .map iframe {
   height: 100%;
   width: 100%;
@@ -459,4 +516,41 @@ hr {
   font-size: 36px;
   line-height: 1;
   color: #fff;
+}
+
+.valla-section {
+  padding: 80px 0;
+}
+
+.valla-info h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.valla-details li {
+  margin-bottom: 20px;
+}
+
+.valla-details li strong {
+  display: inline-block;
+  min-width: 120px;
+}
+
+.valla-map {
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .valla-section {
+    padding: 60px 0;
+  }
+
+  .valla-info h2 {
+    font-size: 24px;
+  }
+}
+
+#map {
+  height: 500px;
 }
